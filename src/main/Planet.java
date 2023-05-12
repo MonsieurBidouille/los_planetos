@@ -1,5 +1,7 @@
 package main;
 
+import com.sun.source.util.SourcePositions;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -75,6 +77,34 @@ public class Planet extends CorpsCeleste{
 
     public double hour_to_degre(double h){
         return 360.0/this.getRevolution() * h;
+    }
+
+    public Position turnsim(int t){
+
+        double cr = this.getRevolution_current();
+
+        double x = 0;
+        double y = 0;
+
+        for(int i = 0; i < t; i++) {
+
+            //double rayon = (double)getDistance_orbit()/1000000;
+
+            this.setRevolution_current(getRevolution_current() + hour_to_degre(24));
+
+            while (revolution_current > 360) {
+                this.setRevolution_current(getRevolution_current() - 360);
+            }
+
+            x = (double) getDistance_orbit() * Math.cos(Math.toRadians(revolution_current));
+            y = (double) getDistance_orbit() * Math.sin(Math.toRadians(revolution_current));
+
+        }
+        this.setRevolution_current(cr);
+
+        System.out.println(x);
+
+        return new Position(x,y);
     }
 
     public void turn(){

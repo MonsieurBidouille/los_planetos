@@ -80,6 +80,8 @@ public class CorpsCeleste {
 
 
     public String toJSON(){
-        return "{'x':"+this.getPosition().getX()+", 'y':"+this.getPosition().getY()+", 'distanceCentre':"+this.distancesun()+"}";
+        return "{'x':"+this.getPosition().getX()+", 'y':"+this.getPosition().getY()+"}";
     }
+
+
 }

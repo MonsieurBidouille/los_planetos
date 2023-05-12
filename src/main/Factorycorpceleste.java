@@ -1,6 +1,5 @@
 package main;
 import org.json.JSONObject ;
-import java.awt.*;
 
 public class Factorycorpceleste {
 
@@ -13,8 +12,6 @@ public class Factorycorpceleste {
             Position position = new Position(positionjson.getDouble("x"), positionjson.getDouble("y"));
 
 
-
-
             switch (en){
                 case PLANET -> {
                     return new Planet(id,name,size,cc.getInt("revolution"),cc.getDouble("revolution_current"),cc.getInt("distance_orbit"),position, cc.getInt("id_orbit"));
@@ -25,6 +22,7 @@ public class Factorycorpceleste {
                 case ETOILE -> {
                     return new Etoile(id,name,size,position);
                 }
+
 
                 default -> {
                     return null;

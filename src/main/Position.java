@@ -24,4 +24,9 @@ public class Position {
     public void setY(double y) {
         this.y = y;
     }
+
+    double distance(Position p){
+        return Math.sqrt((p.getX()-this.getX()) + (p.getY()-this.getY()));
+    }
+
 }

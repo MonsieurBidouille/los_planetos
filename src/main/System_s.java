@@ -44,15 +44,32 @@ public class System_s {
 
         Logmachine l = new Logmachine();
 
+        Launcher launch = new Launcher();
+
+
+        int haha = 0;
+
+
         for (int i = 0; i < j; i++) {
+
+            launch.turnmeteor();
+
             for (CorpsCeleste p : this.corps) {
                 if (p.getClass() == Planet.class) {
                     ((Planet) p).turn();
                 }
             }
             for (CorpsCeleste c:this.corps){
+                launch.wcheckcollision(c);
                 Singleton.getInstance().addjson(c.toJSON());
             }
+
+
+            if(haha == 0) {
+                launch.planetcrash((Planet)corps.get(1));
+                haha++;
+            }
+            launch.printmeteor();
 
             Singleton.getInstance().wcycle();
 
